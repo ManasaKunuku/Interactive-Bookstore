@@ -1,0 +1,11 @@
+import { ArrowRight, BookOpen, Truck, Heart, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
+import { books } from "../data/books";
+import BookCard from "../components/BookCard";
+
+export default function Home() {
+  return <><section className="hero"><div className="container hero-grid"><div className="hero-copy"><span className="eyebrow">A WORLD BETWEEN THE COVERS</span><h1>Stories worth<br/><em>staying up for.</em></h1><p>Thoughtful reads, timeless stories, and fresh perspectives. Your next favourite book is waiting here.</p><Link className="primary-btn" to="/books">Explore the collection <ArrowRight size={17}/></Link><div className="hero-note"><span>✦</span> Curated reads for curious minds</div></div><div className="hero-art"><div className="sun"></div><div className="hero-book book-one"><small>THE READING ROOM</small><b>THE ART<br/>OF SLOW<br/>LIVING</b><span>A little book of big ideas</span></div><div className="hero-book book-two"><small>FIELD NOTES</small><b>WILD<br/>WORLDS</b><span>Stories to take you places</span></div><div className="art-caption">TURN THE PAGE <span>→</span></div></div></div></section>
+  <section className="benefits"><div className="container benefit-grid"><div><Truck/><span><b>Free delivery</b><small>On orders above ₹999</small></span></div><div><Heart/><span><b>Handpicked books</b><small>Chosen with readers in mind</small></span></div><div><ShieldCheck/><span><b>Secure checkout</b><small>Your details stay protected</small></span></div></div></section>
+  <section className="section container"><div className="section-heading"><div><span className="eyebrow">THE GOOD STUFF</span><h2>Readers are loving</h2><p>A few favourites to get you started.</p></div><Link to="/books" className="text-link">View all books <ArrowRight size={16}/></Link></div><div className="book-grid">{books.slice(0,4).map(book => <BookCard key={book.id} book={book}/>)}</div></section>
+  <section className="quote-band"><div className="container"><BookOpen/><p>“A book is a dream that you hold in your hands.”</p><span>— Neil Gaiman</span></div></section></>;
+}
